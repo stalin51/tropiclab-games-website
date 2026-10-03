@@ -47,7 +47,8 @@ document.querySelectorAll('[data-brand]').forEach((element) => {
 document.querySelectorAll('[data-location]').forEach((element) => {
   element.textContent = SITE_CONFIG.location;
 });
-document.querySelector('#copyright-year').textContent = new Date().getFullYear();
+const copyrightYear = document.querySelector('#copyright-year');
+if (copyrightYear) copyrightYear.textContent = new Date().getFullYear();
 if (SITE_CONFIG.productionUrl.trim()) {
   const baseUrl = SITE_CONFIG.productionUrl.endsWith('/') ? SITE_CONFIG.productionUrl : `${SITE_CONFIG.productionUrl}/`;
   const pagePath = document.body.classList.contains('privacy-page') ? 'privacidad.html' : '';
